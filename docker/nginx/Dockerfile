@@ -19,5 +19,7 @@ RUN yum install git -y &&\
 WORKDIR /opt/xdebug
 RUN phpize && ./configure --enable-xdebug && make && make install &&\
     echo "zend_extension="/wherever/you/put/it/xdebug.so"" >> /etc/php.ini
+
 EXPOSE 80
-CMD ["/usr/sbin/nginx"]
+
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
