@@ -10,6 +10,8 @@ services:
     - 80:80
     volumes:
     - ./nginx/conf.d/:/etc/nginx/conf.d/
+    - ./nginx/:/var/www/
+    - ./nginx/logs/:/var/log/nginx/
     restart: always
   database:
     image: mysql:5.7
